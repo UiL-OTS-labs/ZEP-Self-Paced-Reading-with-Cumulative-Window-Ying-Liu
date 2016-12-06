@@ -26,7 +26,7 @@ const string INSTRUCTION_TEXT2 =
 "<i>Druk een willekeurige knop op de knoppenkast om verder te gaan</i>";
 
 const string 	PRACTICE_TEXT_OVERLAY =
-"lees zin deel voor deel";
+"Bestudeer de plaatjes en\nlees de zin deel voor deel";
 
 const string 	AFTER_PRACTICE_TEXT 	=
 "Einde oefening.\n"
