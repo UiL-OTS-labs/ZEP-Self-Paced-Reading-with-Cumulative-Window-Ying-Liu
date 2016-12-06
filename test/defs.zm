@@ -1,0 +1,9 @@
+// Duration of the interval between two trials.
+const dur       INTERTRIAL_INTERVAL             = 1000ms;
+
+const int 	STIMULUS_PICTURE_WIDTH = 900;
+const int 	STIMULUS_PICTURE_HEIGHT = 300;
+
+const int 	MIDDLE_GUI_COLUMN_WIDTH = 1200;
+
+const dur 	DURATION_FEEDBACK_BUTTON = 1000;

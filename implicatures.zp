@@ -1,0 +1,108 @@
+requires 1.10;
+
+import std_windows1;
+import texts_nl;
+import std_entry_page1;
+import std_exit_page1;
+import std_pause_page;
+import std_blank_page;
+import output;
+
+import test::task;
+
+enum OutputChoice {
+    MATCH = 0,
+    NOMATCH = 1,
+    NEXT_SEGMENT = 2
+}
+
+Experiment experiment
+{
+
+    OutputChoice LEFT_BUTTON_CONFIGURATION;
+
+
+    on_event:entry()
+    {
+        if(check_participant_fields() == ERROR) 
+            {
+                terminate;
+            }
+
+        setup_buttonbox();
+        setup_strings();
+        show_test_windows();
+    }
+
+    void setup_buttonbox()
+    {
+        control.button_box.open();
+        control.button_box.output(0x02); // set parallel port line D0 to power button box device.
+
+        if (expdb.participant.get_enum_field("left_button") == "neg")
+            LEFT_BUTTON_CONFIGURATION = MATCH;
+        else
+            LEFT_BUTTON_CONFIGURATION = NOMATCH;
+    }
+
+    void setup_strings() //most used functions below (should) exist in texts[..].zm
+    {
+        INSTRUCTION_TEXT = string_instruction_text();
+    }
+
+    bool left_button_is_positive_relation()
+    {
+        return experiment.LEFT_BUTTON_CONFIGURATION == MATCH;
+    }
+
+    on_event:message()
+    {
+        // On Ctrl+F4 jump unconditionally to the thank-you part.
+        if (message_sender == control && message_arg == SYS_STOP)
+        {
+            control.mark_experiment_aborted();
+            thankyou.enter();
+        }
+    }
+
+
+    Part welcome
+    {
+        on_event:entry()
+        {
+            entry_page.set_text(WELCOME_TEXT);
+            entry_page.action(this, 0s);
+        }
+    }
+
+    Part welcome_2
+    {
+        on_event:entry()
+        {
+            pause_page.set_text( WELCOME_TEXT2, true);
+
+            pause_page.action(this);
+            control.button_box.enable_all_buttons(CONTINUE);
+        }
+    }
+
+    Part phase1
+    {
+        on_event:entry()
+        {
+            test::action(this);
+        }
+    }
+
+
+    Part thankyou
+    {
+        on_event:entry()
+        {
+            control.end_experiment();   // Check-in session.
+
+            exit_page.set_text(THANK_YOU_TEXT);
+            exit_page.action(this, 10s);
+        }
+    }
+}

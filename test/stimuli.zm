@@ -1,0 +1,78 @@
+enum ItemQuantifier
+{
+    MINSTENS,
+    MEER
+}
+
+enum ItemCondition
+{
+    SEM0PRA0,
+    SEM1PRA0,
+    SEM1PRA1
+}
+
+enum ItemType
+{
+    FILLER,
+    TARGET,                   
+}
+
+// Item table record.
+record TestItem
+{
+    int         id;
+    string      sentence;
+    string      figure_file_name;
+
+    ItemQuantifier quantifier;
+    ItemCondition condition;
+
+    int         digit_in_sentence;
+    ItemType    type;           
+    string      start_word;
+    
+}
+
+
+// Practice item table.
+//   index: item number
+TestItem[..] prac_items;
+
+// Test item table.
+//   index: item number
+TestItem[..] test_items;
+
+
+// Loads item table(s) from CSV file(s) in the stimuli folder.
+int load_stimuli()
+{
+    // Uncomment relevant parts below to load stimuli from CSV file.
+
+    int err;
+
+//    // Load data into prac_items table.
+   err = prac_items.load(stimuli_dir() + "prac_items.csv", 
+       true,           // if true, file contains a header row
+       1);             // number of lines to skip before header and data
+   if (err) return err;
+
+
+    // Load data into test_items table.
+    err = test_items.load(stimuli_dir() + "test_items.csv", 
+        true,           // if true, file contains a header row
+        1);             // number of lines to skip before header and data
+    if (err) return err;
+
+    return OK;
+}
+
+
+// Saves item table(s) as CSV file(s) in the script folder.
+void save_stimuli()
+{
+    prac_items.save(script_dir() + "prac_items.csv", 
+        "Practice items");
+
+    test_items.save(script_dir() + "test_items.csv", 
+        "Test items");
+}

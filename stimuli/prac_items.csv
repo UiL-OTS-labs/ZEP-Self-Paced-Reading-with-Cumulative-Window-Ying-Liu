@@ -1,0 +1,6 @@
+### Practice items ###;;;;;;;
+id;sentence;figure_file_name;quantifier;condition;digit_in_sentence;type;start_word
+1;Elke/kom/bevat/ knikkers .;filquan7.svg;MINSTENS;SEM1PRA0;6;FILLER;Elke
+2;Geen/kom/bevat/ knikkers .;filex20.svg;MINSTENS;SEM1PRA1;7;FILLER;geen
+3;Een kom/bevat/knikkers .;filnum16.svg;MINSTENS;SEM1PRA1;7;FILLER;…Èn
+4;Sommige/kommen/bevatten/weinig knikkers .;filex11.svg;MINSTENS;SEM1PRA1;6;FILLER;Sommige
