@@ -5,7 +5,7 @@ Participant's task is to read sentences that are shown beneath a picture. The se
 
 This particular SPR implementation uses a cumulative window: On each response the segment window grows by one segment, thus revealing a larger part of the sentence.
 
-Current button setup is SPACE_BAR to show next segement and LEFT and RIGHT SHIFT for the additional choice.
+Current button setup is SPACE_BAR to show next segement and LEFT and RIGHT SHIFT for the additional choice. Alternative one can use an attached [BeexyBox](http://www.beexy.org/responseboxes/).
 
 ## Output
 RT between onset exposure of last word and the following button choice.
@@ -15,11 +15,11 @@ No more then three of the same type in following properties in sequence:
 * Same start_word (seperate field, does not automatically lookup first word)
 * Type ('FILL' / 'TARGET')
 
-You can test the pseudoranomisation by running 
+You can test the pseudoranomisation by running
  zep test_pseudorandomisation.zp
 
 ## Targeted Language
-Dutch 
+Dutch
 
 ## Stimuli format
 If you want to split a sentence at specific places you can add a "/". The script automatically removes leading and trailing whitespaces of thus created segment and adds a single whitespace at the end.
@@ -38,9 +38,10 @@ Will split into:
 This experiment script is released under the terms of the GNU General Public License (see http://www.gnu.org/licenses/gpl-2.0.html). It is distributed in the hope that it will be useful, but with absolutely no warranty. It is your responsibility to carefully study and test the script before using it with real participants.
 
 ## Request details
-# Author
-C. van Run
-# Client
-Erlinde Meertens
-# Supervisor
-Rick Nouwen
+### Author
+[C. van Run](http://www.uu.nl/staff/CPAvanRun)
+### Client
+Ying Liu
+### Supervisors
+* [Rick Nouwen](http://www.uu.nl/medewerkers/RWFNouwen)
+* [Yaron McNabb](http://www.uu.nl/medewerkers/YMcNabb)
