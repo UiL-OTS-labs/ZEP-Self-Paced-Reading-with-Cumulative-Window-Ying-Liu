@@ -1,4 +1,4 @@
-requires 1.10;
+requires 1.14;
 
 import std_windows1;
 import texts_nl;
@@ -24,7 +24,7 @@ Experiment experiment
 
     on_event:entry()
     {
-        if(check_participant_fields() == ERROR) 
+        if(check_participant_fields() == ERROR)
             {
                 terminate;
             }
@@ -36,8 +36,7 @@ Experiment experiment
 
     void setup_buttonbox()
     {
-        control.button_box.open();
-        control.button_box.output(0x02); // set parallel port line D0 to power button box device.
+        control.button_box.open("/dev/ttyACM0");
 
         if (expdb.participant.get_enum_field("left_button") == "neg")
             LEFT_BUTTON_CONFIGURATION = MATCH;
