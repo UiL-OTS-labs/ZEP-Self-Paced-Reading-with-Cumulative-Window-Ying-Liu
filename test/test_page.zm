@@ -10,42 +10,33 @@ Page test_page
 
     on_event:key_press()
     {
-        OutputChoice button_choice;
         if (input_key == KEY_Shift_L)
         {
-            button_choice = experiment.left_button_is_positive_relation() ? MATCH : NOMATCH; 
+            response.process_hit(LEFT_BUTTON, event_time);
         }
 
         else if(input_key == KEY_Shift_R)
         {
-            button_choice = experiment.left_button_is_positive_relation() ? NOMATCH : MATCH;
+            response.process_hit(RIGHT_BUTTON, event_time);
         }
 
        else if(input_key == ' ')
        {
-            button_choice = NEXT_SEGMENT;
+            segment_selection.process_hit(event_time);
        }
-                
         else if(input_key == KEY_Escape)
             done(CONTINUE);
-
         else
             handle_special_key(this, input_key, input_modifiers);
-
-        process_button_press(button_choice, event_time);
     }
 
 
     on_event:message()
     {
-        OutputChoice button_choice;
-        if(message_arg == 0)
-            button_choice = MATCH;
-        else if(message_arg == 1)
-            button_choice = NOMATCH;
-        else if(message_arg == 2)
-            button_choice = NEXT_SEGMENT;
-        process_button_press(button_choice, event_time);
+        if(message_arg == LEFT_BUTTON|| message_arg == RIGHT_BUTTON)
+            response.process_hit(message_arg, event_time);
+        else if(message_arg == MIDDLE_BUTTON)
+            segment_selection.process_hit(event_time);
     }
 
 
@@ -129,9 +120,9 @@ Page test_page
                         new_token = trim_trailing_whitespace(new_token);
 
                         string_appender = string_appender + new_token + " ";
-                       
+
                        if(index == segments.size - 1) pointer = "";
-                        
+
                         segments[index] = string_appender + pointer;
                         index++;
                     }
@@ -158,9 +149,6 @@ Page test_page
 
         HorizontalLayout button_press_feedback
         {
-            LabelGadget positive_button;
-
-            LabelGadget negative_button;
 
             init()
             {
@@ -173,6 +161,7 @@ Page test_page
             {
                 init()
                 {
+                    text = "Links";
                     font_family = INFO_PAGE_MESSAGE_FONT_FAMILY;
                     font_size = INFO_PAGE_MESSAGE_FONT_SIZE*2;
                     fill_pattern_color = color:dimgray;
@@ -189,6 +178,7 @@ Page test_page
             {
                 init()
                 {
+                    text = "Rechts";
                     font_family = INFO_PAGE_MESSAGE_FONT_FAMILY;
                     font_size = INFO_PAGE_MESSAGE_FONT_SIZE*2;
                     fill_pattern_color = color:dimgray;
@@ -200,43 +190,24 @@ Page test_page
                     is_visible = false;
                 }
             }
-
-            void setup_text()
-            {
-                if(experiment.left_button_is_positive_relation())
-                {
-                    left_button_feedback.text = TEXT_BUTTON_FEEDBACK[MATCH];
-                    right_button_feedback.text = TEXT_BUTTON_FEEDBACK[NOMATCH];
-                    positive_button = left_button_feedback;
-                    negative_button = right_button_feedback;
-                }
-                else
-                  {
-                    right_button_feedback.text = TEXT_BUTTON_FEEDBACK[MATCH];
-                    left_button_feedback.text = TEXT_BUTTON_FEEDBACK[NOMATCH];
-                    positive_button = right_button_feedback;
-                    negative_button = left_button_feedback;
-                  }
-                }
         }
 
-        void feedback_button(OutputChoice choice)
+        void feedback_button(int choice)
         {
-            if(choice == MATCH)
-                button_press_feedback.positive_button.start(now(),DURATION_FEEDBACK_BUTTON);
+            if(choice == LEFT_BUTTON)
+                button_press_feedback.left_button_feedback.start(now(),DURATION_FEEDBACK_BUTTON);
             else
-                button_press_feedback.negative_button.start(now(),DURATION_FEEDBACK_BUTTON);
+                button_press_feedback.right_button_feedback.start(now(),DURATION_FEEDBACK_BUTTON);
         }
 
         time start_stimulus(time t)
         {
-            button_press_feedback.setup_text();
 
             image_canvas.image_full_path = stimuli_dir() + "/images/" + item.figure_file_name;
 
             // Start stimulus.
             image_canvas.image_shape.load(STIMULUS_PICTURE_WIDTH, STIMULUS_PICTURE_HEIGHT);
-            
+
             image_canvas.image_shape.start(t);
             sentence_gadget.start(t);
 
@@ -248,7 +219,7 @@ Page test_page
         void reset()
         {
             full_abort();
-            
+
 
             button_press_feedback.left_button_feedback.is_visible = false;
             button_press_feedback.right_button_feedback.is_visible = false;
@@ -258,21 +229,13 @@ Page test_page
         }
     }
 
-    void process_button_press(OutputChoice choice, time t)
-    {
-        if(choice == NEXT_SEGMENT)
-            segment_selection.process_hit(t);
-        else
-            response.process_hit(choice, t);
-    }
-
     Response segment_selection
     {
         void process_hit(time t)
         {
              HitType validity = hit(t);
 
-                // Accept the first hit in the response interval, end the 
+                // Accept the first hit in the response interval, end the
                 // response interval and start next stimulus/response interval.
                 if (validity == HIT_VALID)
                 {
@@ -305,18 +268,18 @@ Page test_page
 
         // Response data.
         int rt;             // response times [ms]
-        OutputChoice choice;
+        ButtonOption choice;
 
         void clear()
         {
             rt = -9999;
         }
-       
-        void process_hit(OutputChoice button_choice, time t)
+
+        void process_hit(int button_choice, time t)
         {
             HitType validity = hit(t);
 
-            // Accept the first hit in the response interval, end the 
+            // Accept the first hit in the response interval, end the
             // response interval and start next stimulus/response interval.
             if (validity == HIT_VALID)
             {
@@ -329,15 +292,16 @@ Page test_page
             }
         }
 
-        void process_valid_response(OutputChoice button_choice, time t)
+        void process_valid_response(int button_choice, time t)
         {
-             if(button_choice == MATCH)
-                layout.feedback_button(MATCH);
-            else
-                layout.feedback_button(NOMATCH);
-                    
+            layout.feedback_button(button_choice);
+
+            //item.correct_choice == button_choice
             rt = int(reaction_time(0));
-            choice = button_choice;
+            if( button_choice==LEFT_BUTTON )
+                choice = LEFT_BUTTON;
+            else
+                choice = RIGHT_BUTTON;
 
             ignore_remaining_hits();
             stop(t + DURATION_FEEDBACK_BUTTON);
@@ -381,7 +345,7 @@ Page test_page
         test_page_overlay.setup(this);
 
         // Show or hide prompt.
-        test_page_overlay.show_prompt(pr ? 
+        test_page_overlay.show_prompt(pr ?
             PRACTICE_TEXT_OVERLAY : "");
 
         // Enable or disable the progress bar.
@@ -427,13 +391,13 @@ Page test_page
         time fixonset = layout.start_stimulus(tref);
 
         segment_selection.start(fixonset);
-        
+
         // Update progress counter (if enabled).
         test_page_overlay.update_progress_bar(count);
 
         // Update status line on control window. Cleared in done() above.
         control.set_status(
-            string(item.id) + "  " + 
+            string(item.id) + "  " +
             string(item.type));
 
 
@@ -446,16 +410,8 @@ Page test_page
         //assumes that it is open.
         control.target = this;
         control.button_box.disable_buttons();
-        if(experiment.left_button_is_positive_relation()) //with the wire on the left side...
-        {
-            control.button_box.enable_button(1, MATCH);
-            control.button_box.enable_button(0, NOMATCH);
-        }
-        else
-        {
-            control.button_box.enable_button(1, NOMATCH);
-            control.button_box.enable_button(0, MATCH);
-        }
-        control.button_box.enable_button(2, NEXT_SEGMENT);
+        control.button_box.enable_button(0, LEFT_BUTTON);
+        control.button_box.enable_button(1, MIDDLE_BUTTON);
+        control.button_box.enable_button(2, RIGHT_BUTTON);
     }
 }

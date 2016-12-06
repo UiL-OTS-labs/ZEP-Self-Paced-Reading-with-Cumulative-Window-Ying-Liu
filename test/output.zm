@@ -12,11 +12,11 @@ record TestOutput
     ItemCondition condition;
 
     int         digit_in_sentence;
-    ItemType    type;           
+    ItemType    type;
     string      start_word;
 
-    int         reaction_time;     
-    OutputChoice choice;  
+    int         reaction_time;
+    ButtonOption choice;
 }
 
 

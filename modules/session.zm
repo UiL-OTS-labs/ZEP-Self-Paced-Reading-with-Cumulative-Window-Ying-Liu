@@ -15,7 +15,7 @@ HISTORY:
 
 
 // This function is called after group assignment and check out of experiment,
-// researcher, participant and group records, but before the new session has 
+// researcher, participant and group records, but before the new session has
 // been created. At this point the database is fully accessible.
 int setup_pre_session()
 {
@@ -24,13 +24,11 @@ int setup_pre_session()
 
 
 // This function is called just after the new session has been created. So
-// the new session id is known. At this point the database is still fully 
+// the new session id is known. At this point the database is still fully
 // accessible.
 int setup_session()
 {
     if (test::load_stimuli() != OK) return ERROR;
-
-//    test::save_stimuli();
 
     return OK;
 }

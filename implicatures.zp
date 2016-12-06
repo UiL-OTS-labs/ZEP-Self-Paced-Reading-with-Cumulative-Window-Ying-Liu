@@ -1,57 +1,31 @@
 requires 1.14;
 
 import std_windows1;
-import texts_nl;
+import std_texts_nl;
+import instruction_texts_nl;
+
 import std_entry_page1;
 import std_exit_page1;
 import std_pause_page;
 import std_blank_page;
+import response_box;
+
 import output;
 
 import test::task;
 
-enum OutputChoice {
-    MATCH = 0,
-    NOMATCH = 1,
-    NEXT_SEGMENT = 2
+enum ButtonOption {
+    LEFT_BUTTON,
+    MIDDLE_BUTTON,
+    RIGHT_BUTTON
 }
 
 Experiment experiment
 {
-
-    OutputChoice LEFT_BUTTON_CONFIGURATION;
-
-
     on_event:entry()
     {
-        if(check_participant_fields() == ERROR)
-            {
-                terminate;
-            }
-
-        setup_buttonbox();
-        setup_strings();
-        show_test_windows();
-    }
-
-    void setup_buttonbox()
-    {
         control.button_box.open("/dev/ttyACM0");
-
-        if (expdb.participant.get_enum_field("left_button") == "neg")
-            LEFT_BUTTON_CONFIGURATION = MATCH;
-        else
-            LEFT_BUTTON_CONFIGURATION = NOMATCH;
-    }
-
-    void setup_strings() //most used functions below (should) exist in texts[..].zm
-    {
-        INSTRUCTION_TEXT = string_instruction_text();
-    }
-
-    bool left_button_is_positive_relation()
-    {
-        return experiment.LEFT_BUTTON_CONFIGURATION == MATCH;
+        show_test_windows();
     }
 
     on_event:message()
