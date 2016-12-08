@@ -152,51 +152,47 @@ Page test_page
                     return this.expected_start_time; //this is synced to the next update.
                 }
             }
-
-        HorizontalLayout button_press_feedback
-        {
-
-            init()
+            HorizontalLayout button_press_feedback
             {
-                options = LAYOUT_STRETCH_ITEMS_HOR;
-                width = MIDDLE_GUI_COLUMN_WIDTH;     // 0 means as large as possible
-                spacing = 100;
-            }
 
-            LabelGadget left_button_feedback
-            {
                 init()
                 {
-                    text = "Links";
-                    font_family = INFO_PAGE_MESSAGE_FONT_FAMILY;
-                    font_size = INFO_PAGE_MESSAGE_FONT_SIZE*2;
-                    fill_pattern_color = color:dimgray;
-                    text_color = color:white;
-                    hor_alignment = ALIGN_BEGIN;
-                    ver_alignment = ALIGN_BEGIN;
-                    size = 200, -1;
-                    margin = 10;
-                    is_visible = false;
+                    options = LAYOUT_STRETCH_ITEMS_HOR;
+                    width = MIDDLE_GUI_COLUMN_WIDTH;     // 0 means as large as possible
                 }
-            }
 
-            LabelGadget right_button_feedback
-            {
-                init()
+                LabelGadget left_button_feedback
                 {
-                    text = "Rechts";
-                    font_family = INFO_PAGE_MESSAGE_FONT_FAMILY;
-                    font_size = INFO_PAGE_MESSAGE_FONT_SIZE*2;
-                    fill_pattern_color = color:dimgray;
-                    text_color = color:white;
-                    hor_alignment = ALIGN_END;
-                    ver_alignment = ALIGN_CENTER;
-                    size = 200, -1;
-                    margin = 10;
-                    is_visible = false;
+                    init()
+                    {
+                        font_family = INFO_PAGE_MESSAGE_FONT_FAMILY;
+                        font_size = INFO_PAGE_MESSAGE_FONT_SIZE*2;
+                        fill_pattern_color = color:dimgray;
+                        text_color = color:white;
+                        hor_alignment = ALIGN_BEGIN;
+                        ver_alignment = ALIGN_BEGIN;
+                        size = 150, -1;
+                        margin = 10;
+                        is_visible = false;
+                    }
+                }
+
+                LabelGadget right_button_feedback
+                {
+                    init()
+                    {
+                        font_family = INFO_PAGE_MESSAGE_FONT_FAMILY;
+                        font_size = INFO_PAGE_MESSAGE_FONT_SIZE*2;
+                        fill_pattern_color = color:dimgray;
+                        text_color = color:white;
+                        hor_alignment = ALIGN_END;
+                        ver_alignment = ALIGN_CENTER;
+                        size = 150, -1;
+                        margin = 10;
+                        is_visible = false;
+                    }
                 }
             }
-        }
 
         void feedback_button(int choice)
         {
