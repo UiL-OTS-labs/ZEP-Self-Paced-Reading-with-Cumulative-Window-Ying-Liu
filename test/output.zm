@@ -2,21 +2,21 @@
 // Test output table record.
 record TestOutput
 {
-    int         trialnum;       // trial number
-
-    int         id;
+    int         trial;
+    int         identification;
     string      sentence;
     string      figure_file_name;
 
-    ItemQuantifier quantifier;
-    ItemCondition condition;
-
     int         digit_in_sentence;
-    ItemType    type;
-    string      start_word;
+    string      type;
+    string      quantifier;
+    string      subject;
 
+    ButtonOption expected_answer;
+    int         observation_time;
     int         reaction_time;
-    ButtonOption choice;
+    ButtonOption answer;
+
 }
 
 
