@@ -234,11 +234,11 @@ Page test_page
 
     Response segment_selection
     {
-        dur observation_duration;
+        int observation_time;
 
         void clear()
         {
-            observation_duration = -1s;
+            observation_time = -9999;
         }
         void process_hit(time t)
         {
@@ -260,7 +260,7 @@ Page test_page
         void process_valid_response(time t)
         {
             if(layout.sentence_gadget.is_first_segment()) {
-                observation_duration = t-layout.image_canvas.image_shape.start_time;
+                observation_time = int(t-layout.image_canvas.image_shape.start_time);
             }
 
             layout.sentence_gadget.next_segment();
@@ -411,7 +411,7 @@ Page test_page
 
         // Update status line on control window. Cleared in done() above.
         control.set_status(
-            string(item.id) + "  " +
+            string(item.identification) + "  " +
             string(item.type));
 
 

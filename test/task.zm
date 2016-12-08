@@ -9,6 +9,12 @@ import test_page;
 
 Block task
 {
+    on_event:entry()
+    {
+        // Randomize test items table.
+        if (shuffle_test_items() != OK) terminate;
+    }
+
     Part instructions
     {
         on_event:entry()
@@ -88,14 +94,11 @@ Block task
     Block test
     {
         TestItem        item;   // current item
-        TestOutput      output; // current output table row
+
 
 
         on_event:entry()
         {
-            // Randomize test items table.
-            if (shuffle_test_items() != OK) terminate;
-
             num_cycles = test_items.size;
 
             // Prepare test page: progress bar enabled, prompt disabled.
@@ -121,6 +124,23 @@ Block task
 
             on_event:exit()
             {
+                TestOutput output;
+
+                output.trial             = test.cycle;
+                output.identification    = item.identification;
+                output.sentence          = item.sentence;
+                output.figure_file_name  = item.figure_file_name;
+
+                output.digit_in_sentence = item.digit_in_sentence;
+                output.type              = item.type;
+                output.quantifier        = item.quantifier;
+                output.subject           = item.subject;
+
+                output.expected_answer   = item.expected_answer;
+                output.observation_time  = test_page.segment_selection.observation_time;
+                output.reaction_time     = test_page.response.rt;
+                output.answer            = test_page.response.choice;
+
                 // Add new row to test output table.
                 test_output_append(output);
             }
@@ -150,7 +170,7 @@ Block task
             }
 
 
-            SubTrial question
+            SubTrial
             {
                 on_event:entry()
                 {

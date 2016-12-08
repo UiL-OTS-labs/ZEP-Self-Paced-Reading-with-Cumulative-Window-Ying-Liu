@@ -9,9 +9,15 @@ import std_defs;
 import test::stimuli;
 import test::shuffle;
 
+enum ButtonOption {
+    LEFT_BUTTON,
+    MIDDLE_BUTTON,
+    RIGHT_BUTTON
+}
+
 start()
 {
-	if(test::load_stimuli() == ERROR) 
+	if(test::load_stimuli() == ERROR)
 	{
 		println("Failed to load files, terminating.");
 		terminate;
@@ -28,34 +34,31 @@ void dump_test_items()
 {
 	test::TestItem[] reference_test_items = test::test_items;
     	int nitems =  reference_test_items.size;
-    
+
 	int n;
 
 	println(
 	    "n" + "\t" +
 	    "id" + "\t" +
 	    "sentence" + "\t" +
-	    "figure_file_name" + "\t" +
-	    "quantifier" + "\t" +
-	    "condition" + "\t" +
+	    "figure" + "\t\t" +
+	    "quant" + "\t" +
+	    "subject" + "\t" +
 	    "digit" +"\t"
-	    "type" + "\t\t" +
-	    "start_word"
+	    "type"
 	    );
 
 	while (n < nitems)
 	{
 		println(
 		string(n) + "\t" +
-		string(reference_test_items[n].id) + "\t" +
+		string(reference_test_items[n].identification) + "\t" +
 		substring(reference_test_items[n].sentence, 0, 8) + "..." + "\t" +
 		string(reference_test_items[n].figure_file_name) + "\t" +
-		string(reference_test_items[n].quantifier) + "\t" +
-
-		string(reference_test_items[n].condition) + "\t" +
+		substring(string(reference_test_items[n].quantifier), 0, 5) + "..\t" +
+        substring(string(reference_test_items[n].subject), 0, 5) + "..\t" +
 		string(reference_test_items[n].digit_in_sentence) + "\t" +
-		string(reference_test_items[n].type) + "\t" +
-		string(reference_test_items[n].start_word)
+		string(reference_test_items[n].type) + "\t"
 		);
 		n++;
     	}

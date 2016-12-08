@@ -9,14 +9,14 @@ int shuffle_test_items()
     // before giving up.
     int nattempts;
     bool again = true;
-    while (again && ++nattempts < 100) 
+    while (again && ++nattempts < 100)
     {
         // First shuffle the entire item table.
         again = false;
         test_items.shuffle(0, -1);
 
         // Walk over the table and check for items conflicting with the
-        // criterion. If an item conflicts, then swap it randomly with one 
+        // criterion. If an item conflicts, then swap it randomly with one
         // of the items not yet looked at.
         int n;
         while (n < nitems)
@@ -24,7 +24,7 @@ int shuffle_test_items()
             int nitemswaps;
             while (!is_allowed_item_sequence(test_items, n))
             {
-                if (n+1 == nitems || ++nitemswaps == 10) 
+                if (n+1 == nitems || ++nitemswaps == 10)
                 {
                     again = true;
                     break;
@@ -46,20 +46,40 @@ int shuffle_test_items()
 // Checks validity of item at position n (zero-indexed) in specified items table.
 bool is_allowed_item_sequence(TestItem[] items, int index)
 {
+            //String SUBJECT: no more than 1 in a 3# window. (e.g. flower, shrimp, carrot).
+            //String QUANTIFIER: no more than 2 in a row.
+
+
+
     //Maximaal 3 TARGET items achter elkaar (type) en Maximaal 3 zinnen die beginnen met 'elke' achter elkaar (start_word)
 
-    // The maximum number of subsequent non-filler items is 3.
-    if (index >= 2 && 
-	items[index].type == TARGET &&
-	items[index-1].type == TARGET &&
-	items[index-2].type == TARGET) return false;
+    // The maximum number of subsequent type of items is 3.
+    if (index >= 2 &&
+    	items[index].type == items[index-1].type &&
+        items[index].type == items[index-2].type
+    ) return false;
 
-    // The maximum number of subsequent same type non-filler items is 2.
-    string start_word_at_index = items[index].start_word;
+    if (index >= 1 &&
+    	items[index].quantifier == items[index-1].quantifier
+    ) return false;
 
-    if (index >= 2 && 
-        items[index-1].start_word == start_word_at_index &&
-        items[index-2].start_word == start_word_at_index) return false;
+    int window_size = 3;
+    int window_shift = -1;
+    if (index >= window_size-1)
+    {
+        int subject_counter = 1;
+        string current_subject = items[index].subject;
+
+        while (window_shift > -window_size)
+        {
+            if(items[index+window_shift].subject == current_subject)
+                subject_counter = subject_counter+1;
+            if(subject_counter > 1)
+                return false;
+            window_shift = window_shift - 1;
+
+        }
+    }
 
     return true;
 }

@@ -36,14 +36,14 @@ int load_stimuli()
 //    // Load data into prac_items table.
    err = prac_items.load(stimuli_dir() + "prac_items.csv",
        true,           // if true, file contains a header row
-       1);             // number of lines to skip before header and data
+       0);             // number of lines to skip before header and data
    if (err) return err;
 
 
     // Load data into test_items table.
     err = test_items.load(stimuli_dir() + "test_items.csv",
         true,           // if true, file contains a header row
-        1);             // number of lines to skip before header and data
+        0);             // number of lines to skip before header and data
     if (err) return err;
 
     return OK;

@@ -1,128 +1,33 @@
-### Test items ###;;;;;;;
-id;sentence;figure_file_name;quantifier;condition;digit_in_sentence;type;start_word
-1;Elke/kom/bevat/meer dan 2 knikkers .;comp3.svg;MEER;SEM1PRA0;2;TARGET;Elke
-2;Elke/kom/bevat/meer dan 3 knikkers .;comp4.svg;MEER;SEM1PRA0;3;TARGET;Elke
-3;Elke/kom/bevat/meer dan 4 knikkers .;comp5.svg;MEER;SEM1PRA0;4;TARGET;Elke
-4;Elke/kom/bevat/meer dan 5 knikkers .;comp6.svg;MEER;SEM1PRA0;5;TARGET;Elke
-5;Elke/kom/bevat/meer dan 6 knikkers .;comp7.svg;MEER;SEM1PRA0;6;TARGET;Elke
-6;Elke/kom/bevat/meer dan 7 knikkers .;comp8.svg;MEER;SEM1PRA0;7;TARGET;Elke
-7;Elke/kom/bevat/meer dan 8 knikkers .;comp9.svg;MEER;SEM1PRA0;8;TARGET;Elke
-8;Elke/kom/bevat/meer dan 2 knikkers .;comp12.svg;MEER;SEM1PRA1;2;TARGET;Elke
-9;Elke/kom/bevat/meer dan 3 knikkers .;comp13.svg;MEER;SEM1PRA1;3;TARGET;Elke
-10;Elke/kom/bevat/meer dan 4 knikkers .;comp14.svg;MEER;SEM1PRA1;4;TARGET;Elke
-11;Elke/kom/bevat/meer dan 5 knikkers .;comp15.svg;MEER;SEM1PRA1;5;TARGET;Elke
-12;Elke/kom/bevat/meer dan 6 knikkers .;comp16.svg;MEER;SEM1PRA1;6;TARGET;Elke
-13;Elke/kom/bevat/meer dan 7 knikkers .;comp17.svg;MEER;SEM1PRA1;7;TARGET;Elke
-14;Elke/kom/bevat/meer dan 8 knikkers .;comp18.svg;MEER;SEM1PRA1;8;TARGET;Elke
-15;Elke/kom/bevat/meer dan 2 knikkers .;comp21.svg;MEER;SEM0PRA0;2;TARGET;Elke
-16;Elke/kom/bevat/meer dan 3 knikkers .;comp22.svg;MEER;SEM0PRA0;3;TARGET;Elke
-17;Elke/kom/bevat/meer dan 4 knikkers .;comp23.svg;MEER;SEM0PRA0;4;TARGET;Elke
-18;Elke/kom/bevat/meer dan 5 knikkers .;comp24.svg;MEER;SEM0PRA0;5;TARGET;Elke
-19;Elke/kom/bevat/meer dan 6 knikkers .;comp25.svg;MEER;SEM0PRA0;6;TARGET;Elke
-20;Elke/kom/bevat/meer dan 7 knikkers .;comp26.svg;MEER;SEM0PRA0;7;TARGET;Elke
-21;Elke/kom/bevat/meer dan 8 knikkers .;comp27.svg;MEER;SEM0PRA0;8;TARGET;Elke
-22;Elke/kom/bevat/minstens 3 knikkers .;super3.svg;MINSTENS;SEM1PRA0;2;TARGET;Elke
-23;Elke/kom/bevat/minstens 4 knikkers .;super4.svg;MINSTENS;SEM1PRA0;3;TARGET;Elke
-24;Elke/kom/bevat/minstens 5 knikkers .;super5.svg;MINSTENS;SEM1PRA0;4;TARGET;Elke
-25;Elke/kom/bevat/minstens 6 knikkers .;super6.svg;MINSTENS;SEM1PRA0;5;TARGET;Elke
-26;Elke/kom/bevat/minstens 7 knikkers .;super7.svg;MINSTENS;SEM1PRA0;6;TARGET;Elke
-27;Elke/kom/bevat/minstens 8 knikkers .;super8.svg;MINSTENS;SEM1PRA0;7;TARGET;Elke
-28;Elke/kom/bevat/minstens 9 knikkers .;super9.svg;MINSTENS;SEM1PRA0;8;TARGET;Elke
-29;Elke/kom/bevat/minstens 3 knikkers .;super12.svg;MINSTENS;SEM1PRA1;2;TARGET;Elke
-30;Elke/kom/bevat/minstens 4 knikkers .;super13.svg;MINSTENS;SEM1PRA1;3;TARGET;Elke
-31;Elke/kom/bevat/minstens 5 knikkers .;super14.svg;MINSTENS;SEM1PRA1;4;TARGET;Elke
-32;Elke/kom/bevat/minstens 6 knikkers .;super15.svg;MINSTENS;SEM1PRA1;5;TARGET;Elke
-33;Elke/kom/bevat/minstens 7 knikkers .;super16.svg;MINSTENS;SEM1PRA1;6;TARGET;Elke
-34;Elke/kom/bevat/minstens 8 knikkers .;super17.svg;MINSTENS;SEM1PRA1;7;TARGET;Elke
-35;Elke/kom/bevat/minstens 9 knikkers .;super18.svg;MINSTENS;SEM1PRA1;8;TARGET;Elke
-36;Elke/kom/bevat/minstens 3 knikkers  ;super21.svg;MINSTENS;SEM0PRA0;2;TARGET;Elke
-37;Elke/kom/bevat/minstens 4 knikkers .;super22.svg;MINSTENS;SEM0PRA0;3;TARGET;Elke
-38;Elk/kom/bevat/minstens 5 knikkers .;super23.svg;MINSTENS;SEM0PRA0;4;TARGET;Elke
-39;Elke/kom/bevat/minstens 6 knikkers .;super24.svg;MINSTENS;SEM0PRA0;5;TARGET;Elke
-40;Elke/kom/bevat/minstens 7 knikkers .;super25.svg;MINSTENS;SEM0PRA0;6;TARGET;Elke
-41;Elke/kom/bevat/minstens 8 knikkers .;super26.svg;MINSTENS;SEM0PRA0;7;TARGET;Elke
-42;Elke/kom/bevat/minstens 9 knikkers .;super27.svg;MINSTENS;SEM0PRA0;8;TARGET;Elke
-43;Elke/kom/bevat/knikkers .;filgen3.svg;MEER;SEM1PRA0;2;FILLER;Elke
-44;Elke/kom/bevat/knikkers .;filgen4.svg;MEER;SEM1PRA0;3;FILLER;Elke
-45;Elke/kom/bevat/knikkers .;filgen5.svg;MEER;SEM1PRA0;4;FILLER;Elke
-46;Sommige/kommen/bevatten/knikkers .;filgen8.svg;MEER;SEM1PRA0;5;FILLER;Sommige
-47;Sommige/kommen/bevatten/knikkers .;filgen9.svg;MEER;SEM1PRA0;6;FILLER;Sommige
-48;Sommige/kommen/bevatten/knikkers .;filgen10.svg;MEER;SEM1PRA0;7;FILLER;Sommige
-49;Geen/kom/bevat/knikkers .;filgen13.svg;MEER;SEM1PRA0;8;FILLER;Geen
-50;Geen/kom/bevat/knikkers .;filgen14.svg;MEER;SEM1PRA1;2;FILLER;Geen
-51;Geen/kom/bevat/knikkers .;filgen15.svg;MEER;SEM1PRA1;3;FILLER;Geen
-52;Elke/kom/bevat/veel knikkers .;filquan4.svg;MEER;SEM1PRA1;4;FILLER;Elke
-53;Elke/kom/bevat/een paar knikkers .;filquan5.svg;MEER;SEM1PRA1;5;FILLER;Elke
-54;Elke/kom/bevat/aardig wat knikkers .;filquan6.svg;MEER;SEM1PRA1;6;FILLER;Elke
-55;Elke/kom/bevat/weinig knikkers .;filquan7.svg;MEER;SEM1PRA1;7;FILLER;Elke
-56;Sommige/kommen/bevatten/veel knikkers .;filquan8.svg;MEER;SEM1PRA1;8;FILLER;Sommige
-57;Sommige/kommen/bevatten/een paar knikkers .;filquan9.svg;MEER;SEM0PRA0;2;FILLER;Sommige
-58;Sommige/kommen/bevatten/aardig wat knikkers .;filquan10.svg;MEER;SEM0PRA0;3;FILLER;Sommige
-59;Sommige/kommen/bevatten/weinig knikkers .;filquan11.svg;MEER;SEM0PRA0;4;FILLER;Sommige
-60;Elke/kom/bevat/veel knikkers .;filquan15.svg;MEER;SEM0PRA0;5;FILLER;Elke
-61;Elke/kom/bevat/een paar knikkers .;filquan16.svg;MEER;SEM0PRA0;6;FILLER;Elke
-62;Elke/kom/bevat/aardig wat knikkers .;filquan17.svg;MEER;SEM0PRA0;7;FILLER;Elke
-63;Elke/kom/bevat/weinig knikkers .;filquan18.svg;MEER;SEM0PRA0;8;FILLER;Elke
-64;Sommige/kommen/bevatten/veel knikkers .;filquan19.svg;MINSTENS;SEM1PRA0;2;FILLER;Sommige
-65;Sommige/kommen/bevatten/een paar knikkers .;filquan20.svg;MINSTENS;SEM1PRA0;3;FILLER;Sommige
-66;Sommige/kommen/bevatten/aardig wat knikkers .;filquan21.svg;MINSTENS;SEM1PRA0;4;FILLER;Sommige
-67;Sommige/kommen/bevatten/weinig knikkers .;filquan22.svg;MINSTENS;SEM1PRA0;5;FILLER;Sommige
-68;Elke/kom/bevat/veel knikkers .;filquan26.svg;MINSTENS;SEM1PRA0;6;FILLER;Elke
-69;Elke/kom/bevat/een paar knikkers .;filquan27.svg;MINSTENS;SEM1PRA0;7;FILLER;Elke
-70;Elke/kom/bevat/aardig wat knikkers .;filquan28.svg;MINSTENS;SEM1PRA0;8;FILLER;Elke
-71;Elke/kom/bevat/weinig knikkers .;filquan29.svg;MINSTENS;SEM1PRA1;2;FILLER;Elke
-72;Sommige/kommen/bevatten/veel knikkers .;filquan30.svg;MINSTENS;SEM1PRA1;3;FILLER;Sommige
-73;Sommige/kommen/bevatten/een paar knikkers .;filquan31.svg;MINSTENS;SEM1PRA1;4;FILLER;Sommige
-74;Sommige/kommen/bevatten/aardig wat knikkers .;filquan32.svg;MINSTENS;SEM1PRA1;5;FILLER;Sommige
-75;Sommige/kommen/bevatten/weinig knikkers .;filquan33.svg;MINSTENS;SEM1PRA1;6;FILLER;Sommige
-76;…Èn kom/bevat/knikkers .;filnum4.svg;MINSTENS;SEM1PRA1;7;FILLER;…Èn
-77;Een kom/bevat/knikkers .;filnum5.svg;MINSTENS;SEM1PRA1;8;FILLER;…Èn
-78;Een kom/bevat/knikkers .;filnum6.svg;MINSTENS;SEM0PRA0;2;FILLER;…Èn
-79;Een kom/bevat/knikkers .;filnum7.svg;MINSTENS;SEM0PRA0;3;FILLER;…Èn
-80;Twee kommen/bevatten/knikkers .;filnum8.svg;MINSTENS;SEM0PRA0;4;FILLER;Twee
-81;Twee kommen/bevatten/knikkers .;filnum9.svg;MINSTENS;SEM0PRA0;5;FILLER;Twee
-82;Twee kommen/bevatten/knikkers .;filnum10.svg;MINSTENS;SEM0PRA0;6;FILLER;Twee
-83;Twee kommen/bevatten/knikkers .;filnum11.svg;MINSTENS;SEM0PRA0;7;FILLER;Twee
-84;Drie kommen/bevatten/knikkers .;filnum12.svg;MINSTENS;SEM0PRA0;8;FILLER;Drie
-85;Drie kommen/bevatten/knikkers .;filnum13.svg;MEER;SEM1PRA0;2;FILLER;Drie
-86;Drie kommen/bevatten/knikkers .;filnum14.svg;MEER;SEM1PRA0;3;FILLER;Drie
-87;Een kom/bevat/veel knikkers .;filnum16.svg;MEER;SEM1PRA0;4;FILLER;…Èn
-88;Een kom/bevat/veel knikkers .;filnum17.svg;MEER;SEM1PRA0;5;FILLER;…Èn
-89;Een kom/bevat/veel knikkers .;filnum18.svg;MEER;SEM1PRA0;6;FILLER;…Èn
-90;Een kom/bevat/veel knikkers .;filnum19.svg;MEER;SEM1PRA0;7;FILLER;…Èn
-91;Twee kommen/bevatten/veel knikkers .;filnum20.svg;MEER;SEM1PRA0;8;FILLER;Twee
-92;Twee kommen/bevatten/veel knikkers .;filnum21.svg;MEER;SEM1PRA1;2;FILLER;Twee
-93;Twee kommen/bevatten/veel knikkers .;filnum22.svg;MEER;SEM1PRA1;3;FILLER;Twee
-94;Twee kommen/bevatten/veel knikkers .;filnum23.svg;MEER;SEM1PRA1;4;FILLER;Twee
-95;Drie kommen/bevatten/veel knikkers .;filnum24.svg;MEER;SEM1PRA1;5;FILLER;Drie
-96;Drie kommen/bevatten/veel knikkers .;filnum25.svg;MEER;SEM1PRA1;6;FILLER;Drie
-97;Drie kommen/bevatten/veel knikkers .;filnum26.svg;MEER;SEM1PRA1;7;FILLER;Drie
-98;Een kom/bevat/een paar knikkers .;filnum29.svg;MEER;SEM1PRA1;8;FILLER;…Èn
-99;Een kom/bevat/een paar knikkers .;filnum30.svg;MEER;SEM0PRA0;2;FILLER;…Èn
-100;Een kom/bevat/een paar knikkers .;filnum31.svg;MEER;SEM0PRA0;3;FILLER;…Èn
-101;Een kom/bevat/een paar knikkers .;filnum32.svg;MEER;SEM0PRA0;4;FILLER;…Èn
-102;Twee kommen/bevatten/een paar knikkers .;filnum33.svg;MEER;SEM0PRA0;5;FILLER;Twee
-103;Twee kommen/bevatten/een paar knikkers .;filnum34.svg;MEER;SEM0PRA0;6;FILLER;Twee
-104;Twee kommen/bevatten/een paar knikkers .;filnum35.svg;MEER;SEM0PRA0;7;FILLER;Twee
-105;Twee kommen/bevatten/een paar knikkers .;filnum36.svg;MEER;SEM0PRA0;8;FILLER;Twee
-106;Drie kommen/bevatten/een paar knikkers .;filnum37.svg;MINSTENS;SEM1PRA0;2;FILLER;Drie
-107;Drie kommen/bevatten/een paar knikkers .;filnum38.svg;MINSTENS;SEM1PRA0;3;FILLER;Drie
-108;Drie kommen/bevatten/een paar knikkers .;filnum39.svg;MINSTENS;SEM1PRA0;4;FILLER;Drie
-109;Elke/kom/bevat/knikkers .;filex3.svg;MINSTENS;SEM1PRA0;5;FILLER;Elke
-110;Sommige/kommen/bevatten/knikkers.;filex4.svg;MINSTENS;SEM1PRA0;6;FILLER;Sommige
-111;Geen/kom/bevat/knikkers .;filex5.svg;MINSTENS;SEM1PRA0;7;FILLER;Geen
-112;Elke/kom/bevat/weinig knikkers .;filex6.svg;MINSTENS;SEM1PRA0;8;FILLER;Elke
-113;Sommige/kommen/bevatten/veel knikkers .;filex7.svg;MINSTENS;SEM1PRA1;2;FILLER;Sommige
-114;Elke/kom/bevat/veel knikkers .;filex8.svg;MINSTENS;SEM1PRA1;3;FILLER;Elke
-115;Elke/kom/bevat/een paar knikkers .;filex9.svg;MINSTENS;SEM1PRA1;4;FILLER;Elke
-116;Sommige/kommen/bevatten/aardig wat knikkers.;filex10.svg;MINSTENS;SEM1PRA1;5;FILLER;Sommige
-117;Sommige/kommen/bevatten/weinig knikkers .;filex11.svg;MINSTENS;SEM1PRA1;6;FILLER;Sommige
-118;Een kom/bevat/veel knikkers.;filex12.svg;MINSTENS;SEM1PRA1;7;FILLER;…Èn
-119;Twee kommen/bevatten/veel knikkers.;filex13.svg;MINSTENS;SEM1PRA1;8;FILLER;Twee
-120;Drie kommen/bevatten/veel knikkers .;filex14.svg;MINSTENS;SEM0PRA0;2;FILLER;Drie
-121;Een kom/bevat/een paar knikkers .;filex15.svg;MINSTENS;SEM0PRA0;3;FILLER;…Èn
-122;Een kom/bevat/een paar knikkers .;filex16.svg;MINSTENS;SEM0PRA0;4;FILLER;…Èn
-123;Twee kommen/bevatten/een paar knikkers .;filex17.svg;MINSTENS;SEM0PRA0;5;FILLER;Twee
-124;Twee kommen/bevatten/een paar knikkers .;filex18.svg;MINSTENS;SEM0PRA0;6;FILLER;Twee
-125;Drie kommen/bevatten/een paar knikkers .;filex19.svg;MINSTENS;SEM0PRA0;7;FILLER;Drie
-126;Drie kommen/bevatten/een paar knikkers .;filex20.svg;MINSTENS;SEM0PRA0;8;FILLER;Drie
+identification;sentence;figure_file_name;digit_in_sentence;type;quantifier;subject;expected_answer
+1;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;1;filler;minstens;dolphins;LEFT_BUTTON
+2;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;2;target;meer;pirates;LEFT_BUTTON
+3;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;3;filler;elk;clowns;LEFT_BUTTON
+4;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;4;target;etc;doctors;LEFT_BUTTON
+1;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;1;filler;minstens;dolphins;LEFT_BUTTON
+2;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;2;target;meer;pirates;LEFT_BUTTON
+3;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;3;filler;elk;clowns;LEFT_BUTTON
+4;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;4;target;etc;doctors;LEFT_BUTTON
+1;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;1;filler;minstens;dolphins;LEFT_BUTTON
+2;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;2;target;meer;pirates;LEFT_BUTTON
+3;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;3;filler;elk;clowns;LEFT_BUTTON
+4;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;4;target;etc;doctors;LEFT_BUTTON
+1;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;1;filler;minstens;dolphins;LEFT_BUTTON
+2;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;2;target;meer;pirates;LEFT_BUTTON
+3;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;3;filler;elk;clowns;LEFT_BUTTON
+4;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;4;target;etc;doctors;LEFT_BUTTON
+1;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;1;filler;minstens;dolphins;LEFT_BUTTON
+2;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;2;target;meer;pirates;LEFT_BUTTON
+3;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;3;filler;elk;clowns;LEFT_BUTTON
+4;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;4;target;etc;doctors;LEFT_BUTTON
+1;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;1;filler;minstens;dolphins;LEFT_BUTTON
+2;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;2;target;meer;pirates;LEFT_BUTTON
+3;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;3;filler;elk;clowns;LEFT_BUTTON
+4;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;4;target;etc;doctors;LEFT_BUTTON
+1;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;1;filler;minstens;dolphins;LEFT_BUTTON
+2;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;2;target;meer;pirates;LEFT_BUTTON
+3;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;3;filler;elk;clowns;LEFT_BUTTON
+4;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;4;target;etc;doctors;LEFT_BUTTON
+1;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;1;filler;minstens;dolphins;LEFT_BUTTON
+2;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;2;target;meer;pirates;LEFT_BUTTON
+3;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;3;filler;elk;clowns;LEFT_BUTTON
+4;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;4;target;etc;doctors;LEFT_BUTTON
