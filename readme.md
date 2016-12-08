@@ -11,9 +11,9 @@ Current button setup is SPACE_BAR to show next segement and LEFT and RIGHT SHIFT
 RT between onset exposure of last word and the following button choice.
 
 ## Pseudorandomisation
-No more then three of the same type in following properties in sequence:
-* Same start_word (seperate field, does not automatically lookup first word)
-* Type ('FILL' / 'TARGET')
+* No more than three of the same type in following properties in sequence (filler/target)
+* No same quantifiers may follow each other.
+* In a 3-sized window each subject may only occur once.
 
 You can test the pseudoranomisation by running
  zep test_pseudorandomisation.zp
