@@ -13,6 +13,8 @@ record TestItem
     string      quantifier;
     string      subject;
 
+    string      condition;
+
     ButtonOption expected_answer;
 }
 

@@ -157,6 +157,7 @@ Block task
                 output.quantifier        = item.quantifier;
                 output.subject           = item.subject;
 
+                output.condition         = item.condition;
                 output.expected_answer   = item.expected_answer;
                 output.observation_time  = test_page.segment_selection.observation_time;
                 output.reaction_time     = test_page.response.rt;

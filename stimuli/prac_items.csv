@@ -1,5 +1,5 @@
-identification;sentence;figure_file_name;digit_in_sentence;type;quantifier;subject;expected_answer
-1;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;1;filler;minstens;dolphins;RIGHT_BUTTON
-2;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;2;target;meer;pirates;LEFT_BUTTON
-3;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;3;filler;elk;clowns;LEFT_BUTTON
-4;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;4;target;etc;doctors;LEFT_BUTTON
+identification;sentence;figure_file_name;digit_in_sentence;type;quantifier;subject;condition;expected_answer
+1;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;1;filler;minstens;dolphins;condition;RIGHT_BUTTON
+2;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;2;target;meer;pirates;condition;LEFT_BUTTON
+3;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;3;filler;elk;clowns;condition;LEFT_BUTTON
+4;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;4;target;etc;doctors;condition;LEFT_BUTTON
