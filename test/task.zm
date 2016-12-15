@@ -41,10 +41,11 @@ Block task
     Block practice
     {
         TestItem        item;   // current item
-
+        int correct_counter;
 
         on_event:entry()
         {
+            correct_counter = 0;
             num_cycles = prac_items.size;
 
             // Prepare test page: progress bar and prompt enabled.
@@ -55,6 +56,11 @@ Block task
         on_event:exit()
         {
             test_page.cleanup();
+            if(correct_counter < MINIMAL_CORRECT_PRACTICE)
+            {
+                println("Have not achieved the minimal correct in practice! (" + string(MINIMAL_CORRECT_PRACTICE) + ")");
+                control.stop_experiment();
+            }
         }
 
 
@@ -64,7 +70,22 @@ Block task
             {
                 item = prac_items[practice.cycle];
 
-                 test_page.action(this, item, reference_time, practice.cycle);
+                test_page.action(this, item, reference_time, practice.cycle);
+            }
+
+            on_event:exit()
+            {
+                if(test_page.response.choice == item.expected_answer)
+                {
+                    correct_counter = correct_counter + 1;
+                    print("  Correct Answer");
+                }
+                else
+                {
+                    print("Incorrect Answer");
+                }
+
+                println(" (" + string(correct_counter) + "/" + string(MINIMAL_CORRECT_PRACTICE) + ")" );
             }
         }
     }

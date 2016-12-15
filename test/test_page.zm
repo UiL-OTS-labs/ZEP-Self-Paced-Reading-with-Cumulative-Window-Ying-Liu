@@ -297,6 +297,7 @@ Page test_page
         void clear()
         {
             rt = -9999;
+            choice = ERROR_CHOICE;
         }
 
         void process_hit(int button_choice, time t)

@@ -17,7 +17,8 @@ import test::task;
 enum ButtonOption {
     LEFT_BUTTON,
     MIDDLE_BUTTON,
-    RIGHT_BUTTON
+    RIGHT_BUTTON,
+    ERROR_CHOICE,
 }
 
 Experiment experiment
