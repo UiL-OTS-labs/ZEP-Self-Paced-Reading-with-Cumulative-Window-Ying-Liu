@@ -17,7 +17,14 @@ HISTORY:
 // Creates required participant record fields.
 void create_participant_fields()
 {
-	expdb.participant.add_enum_field("left_button", "pos|neg");
+	expdb.participant.add_enum_field("left_button", "true|false");
+
+    string automatic_selection;
+    if( ( expdb.num_participants % 2 ) > 0 )
+        automatic_selection = "true";
+    else
+        automatic_selection = "false";
+    expdb.participant.set_enum_field("left_button",automatic_selection);
 }
 
 
@@ -26,8 +33,8 @@ int check_participant_fields()
 {
 	if (!expdb.participant.has_enum_field("left_button"))
 	{
-		print_error("Participant field 'left_button' needs to be set to either 'neg' or 'pos'!\n");
-		return ERROR;
-	} 
+		print_error("Participant field 'left_button' was not set to either 'true' or 'false'!\n");
+        return ERROR;
+	}
     return OK;
 }
