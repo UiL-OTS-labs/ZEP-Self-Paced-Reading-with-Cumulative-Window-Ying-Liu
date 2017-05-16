@@ -7,12 +7,10 @@ record TestOutput
     string      sentence;
     string      figure_file_name;
 
-    int         digit_in_sentence;
     string      type;
-    string      quantifier;
-    string      subject;
-
     string      condition;
+    string      structure;
+    string      subject;
 
     ButtonOption expected_answer;
     int         observation_time;

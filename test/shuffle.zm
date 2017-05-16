@@ -46,12 +46,6 @@ int shuffle_test_items()
 // Checks validity of item at position n (zero-indexed) in specified items table.
 bool is_allowed_item_sequence(TestItem[] items, int index)
 {
-            //String SUBJECT: no more than 1 in a 3# window. (e.g. flower, shrimp, carrot).
-            //String QUANTIFIER: no more than 2 in a row.
-
-
-
-    //Maximaal 3 TARGET items achter elkaar (type) en Maximaal 3 zinnen die beginnen met 'elke' achter elkaar (start_word)
 
     // The maximum number of subsequent type of items is 3.
     if (index >= 2 &&
@@ -60,7 +54,7 @@ bool is_allowed_item_sequence(TestItem[] items, int index)
     ) return false;
 
     if (index >= 1 &&
-    	items[index].quantifier == items[index-1].quantifier
+    	items[index].structure == items[index-1].structure
     ) return false;
 
     int window_size = 3;

@@ -1,5 +1,6 @@
-identification;sentence;figure_file_name;digit_in_sentence;type;quantifier;subject;condition;expected_answer
-1;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;1;filler;minstens;dolphins;condition;RIGHT_BUTTON
-2;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 1.png;2;target;meer;pirates;condition;LEFT_BUTTON
-3;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;3;filler;elk;clowns;condition;LEFT_BUTTON
-4;Zowel/de/basketbalspeler/als/de/voetballer/hebben/meer/dan/5 medailles .;example 2.png;4;target;etc;doctors;condition;LEFT_BUTTON
+identification;sentence;figure_file_name;type;condition;structure;subject;expected_answer
+1;The girl/may/buy/a pear/or/a potato.;1.png;target;tcontrol;may or;the girl;RIGHT_BUTTON
+2;The boy/must/buy/a pear/or/a potato.;2.png;target;fcontrol;must or;the boy;LEFT_BUTTON
+3;some/fruits/cost/2 euros.;1.png;filler;tcontrol;some;fruits;LEFT_BUTTON
+4;the boy/and/the girl/both/are offered with/a kind of/fruits.;2.png;filler;fcontrol;both and;the boy and the girl;LEFT_BUTTON
+5;the lady/is offered with/a pear.;1.png;filler;tcontrol;none;the lady;LEFT_BUTTON

@@ -1,7 +1,7 @@
 // Duration of the interval between two trials.
 const dur       INTERTRIAL_INTERVAL             = 1000ms;
 
-const real 	STIMULUS_PICTURE_FACTOR = 0.7;
+const real 	STIMULUS_PICTURE_FACTOR = 0.3;
 const real 	MIDDLE_GUI_COLUMN_WIDTH_FACTOR = 0.8;
 
 const int 	MIDDLE_GUI_COLUMN_WIDTH = 1650;

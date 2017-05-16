@@ -1,7 +1,7 @@
 # Implicatures Experiment
 Self-Paced Reading with Cumulative Window with picture for implicatures.
 
-Participant's task is to read sentences that are shown beneath a picture. The sentences are presented in a segment-by-segment fashion. Participant reveals next segment by hitting a button. At the final word the participant is to make an aditional choice about the sentence and picture.
+Participant's task is to read sentences that are shown beneath a picture. The sentences are presented in a segment-by-segment fashion. Participant reveals next segment by hitting a button. At the final word the participant is to make an additional choice about the sentence and picture.
 
 This particular SPR implementation uses a cumulative window: On each response the segment window grows by one segment, thus revealing a larger part of the sentence.
 
@@ -12,7 +12,7 @@ RT between onset exposure of last word and the following button choice.
 
 ## Pseudorandomisation
 * No more than three of the same type in following properties in sequence (filler/target)
-* No same quantifiers may follow each other.
+* No same structures may follow each other.
 * In a 3-sized window each subject may only occur once.
 
 You can test the pseudoranomisation by running
