@@ -7,6 +7,8 @@ This particular SPR implementation uses a cumulative window: On each response th
 
 Current button setup is SPACE_BAR to show next segement and LEFT and RIGHT SHIFT for the additional choice. Alternative one can use an attached [BeexyBox](http://www.beexy.org/responseboxes/).
 
+The value of the left and right button (i.e. 'true' or 'false') is swapped for every other participant. Note that you can
+still change this by updating the participant record `left_button`.
 ## Output
 RT between onset exposure of last word and the following button choice.
 
