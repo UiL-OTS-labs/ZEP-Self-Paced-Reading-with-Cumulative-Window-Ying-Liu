@@ -152,12 +152,12 @@ Block task
                 output.sentence          = item.sentence;
                 output.figure_file_name  = item.figure_file_name;
 
-                output.digit_in_sentence = item.digit_in_sentence;
                 output.type              = item.type;
-                output.quantifier        = item.quantifier;
+                output.condition         = item.condition;
+                output.structure         = item.structure;
                 output.subject           = item.subject;
 
-                output.condition         = item.condition;
+
                 output.expected_answer   = item.expected_answer;
                 output.observation_time  = test_page.segment_selection.observation_time;
                 output.reaction_time     = test_page.response.rt;

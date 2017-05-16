@@ -4,6 +4,8 @@ import std_windows1;
 import std_texts_nl;
 import instruction_texts_nl;
 
+import participant;
+
 import std_entry_page1;
 import std_exit_page1;
 import std_pause_page;
@@ -23,10 +25,32 @@ enum ButtonOption {
 
 Experiment experiment
 {
+    bool LEFT_BUTTON_VALUE = true;
+    bool RIGHT_BUTTON_VALUE = false;
+
     on_event:entry()
     {
-        control.button_box.open("/dev/ttyACM0");
+        if(check_participant_fields() != OK)
+            terminate;
+        setup_button_values();
+
+        control.button_box.open();
         show_test_windows();
+
+    }
+
+    void setup_button_values()
+    {
+        if(expdb.participant.get_enum_field("left_button") == "true")
+        {
+            LEFT_BUTTON_VALUE = true;
+            RIGHT_BUTTON_VALUE = !LEFT_BUTTON_VALUE;
+        }
+        else
+        {
+            LEFT_BUTTON_VALUE = false;
+            RIGHT_BUTTON_VALUE = !LEFT_BUTTON_VALUE;
+        }
     }
 
     on_event:message()
@@ -77,6 +101,8 @@ Experiment experiment
 
             exit_page.set_text(THANK_YOU_TEXT);
             exit_page.action(this, 10s);
+
+            control.button_box.close();
         }
     }
 }

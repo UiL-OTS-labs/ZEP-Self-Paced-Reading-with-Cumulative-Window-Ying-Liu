@@ -52,22 +52,33 @@ Page test_page
         {
             string image_full_path;
 
+            on_event:resize()
+            {
+                image_shape.setup();
+                this.reload();
+            }
+
             void reload()
             {
                 if(!test_page.window.is_shown)
+                {
+                    println("Calling reload before window is shown!");
                     return;
+                }
                 width    = int(image_shape.actual_width);
                 height   = int(image_shape.actual_height);
                 offset_x = floor(width/2);
                 offset_y = floor(height/2);
             }
 
-
             ImageShape image_shape
             {
 
-                on_event:pre_update()
+                void setup()
                 {
+                    // Set image so we can query width
+                    image = image_canvas.image_full_path;
+
                     int width_pix = int(test_page.window.width*STIMULUS_PICTURE_FACTOR);
                     int height_pix = int(( width_pix / this.image_width ) * this.image_height);
 
@@ -78,12 +89,6 @@ Page test_page
 
                     image_canvas.reload();
                 }
-
-                void load()
-                {
-                    // Set image so we can query width
-                    image = image_canvas.image_full_path;
-                }
             }
         }
 
@@ -92,10 +97,13 @@ Page test_page
                 int             current_segment_index;
                 string[..]      segments;        // current segment text
 
-                on_event:start()
+                void setup()
                 {
-                    if(! test_page.window.is_shown )
+                    if(!test_page.window.is_shown)
+                    {
+                        println("Calling setup before window is shown!");
                         return;
+                    }
                     is_visible = true;
                     border_style = BORDER_SOLID;
                     border=1;
@@ -163,14 +171,15 @@ Page test_page
                     start(t+50ms); // this is to ensure that the reaction time measurement is synced with refresh update of screen.
                     return this.expected_start_time; //this is synced to the next update.
                 }
+
             }
             HorizontalLayout button_press_feedback
             {
 
                 init()
                 {
-                    options = LAYOUT_STRETCH_ITEMS_HOR;
                     width = MIDDLE_GUI_COLUMN_WIDTH;     // 0 means as large as possible
+                    spacing = 250;
                 }
 
                 LabelGadget left_button_feedback
@@ -179,13 +188,26 @@ Page test_page
                     {
                         font_family = INFO_PAGE_MESSAGE_FONT_FAMILY;
                         font_size = INFO_PAGE_MESSAGE_FONT_SIZE*2;
-                        fill_pattern_color = color:dimgray;
+                        fill_pattern_color = color:gray;
                         text_color = color:white;
-                        hor_alignment = ALIGN_BEGIN;
+                        hor_alignment = ALIGN_CENTER;
                         ver_alignment = ALIGN_BEGIN;
-                        size = 150, -1;
+                        size = 250, -1;
                         margin = 10;
-                        is_visible = false;
+                        is_visible = true;
+                    }
+
+                    void setup()
+                    {
+                        if (experiment.LEFT_BUTTON_VALUE)
+                            text = TRUE_BUTTON_TEXT;
+                        else
+                            text = FALSE_BUTTON_TEXT;
+                    }
+
+                    void reset()
+                    {
+                        fill_pattern_color = color:gray;
                     }
                 }
 
@@ -195,13 +217,26 @@ Page test_page
                     {
                         font_family = INFO_PAGE_MESSAGE_FONT_FAMILY;
                         font_size = INFO_PAGE_MESSAGE_FONT_SIZE*2;
-                        fill_pattern_color = color:dimgray;
+                        fill_pattern_color = color:gray;
                         text_color = color:white;
-                        hor_alignment = ALIGN_END;
-                        ver_alignment = ALIGN_CENTER;
-                        size = 150, -1;
+                        hor_alignment = ALIGN_CENTER;
+                        ver_alignment = ALIGN_BEGIN;
+                        size = 250, -1;
                         margin = 10;
-                        is_visible = false;
+                        is_visible = true;
+                    }
+
+                    void setup()
+                    {
+                        if (experiment.RIGHT_BUTTON_VALUE)
+                            text = TRUE_BUTTON_TEXT;
+                        else
+                            text = FALSE_BUTTON_TEXT;
+                    }
+
+                    void reset()
+                    {
+                        fill_pattern_color = color:gray;
                     }
                 }
             }
@@ -209,9 +244,9 @@ Page test_page
         void feedback_button(int choice)
         {
             if(choice == LEFT_BUTTON)
-                button_press_feedback.left_button_feedback.start(now(),DURATION_FEEDBACK_BUTTON);
+                button_press_feedback.left_button_feedback.fill_pattern_color = color:dimgray;
             else
-                button_press_feedback.right_button_feedback.start(now(),DURATION_FEEDBACK_BUTTON);
+                button_press_feedback.right_button_feedback.fill_pattern_color = color:dimgray;
         }
 
         time start_stimulus(time t)
@@ -220,10 +255,11 @@ Page test_page
             image_canvas.image_full_path = stimuli_dir() + "/images/" + item.figure_file_name;
 
             // Start stimulus.
-            image_canvas.image_shape.load();
+            image_canvas.image_shape.setup();
             image_canvas.image_shape.start(t);
 
-            sentence_gadget.start(t);
+            sentence_gadget.setup();
+            sentence_gadget.start(t+DELAY_SENTENCE_DURATION);
 
             // Return stimulus onset time.
             return sentence_gadget.expected_start_time;
@@ -234,12 +270,12 @@ Page test_page
         {
             full_abort();
 
-            button_press_feedback.left_button_feedback.is_visible = false;
-            button_press_feedback.right_button_feedback.is_visible = false;
+            button_press_feedback.left_button_feedback.reset();
+            button_press_feedback.right_button_feedback.reset();
 
             image_canvas.image_shape.is_visible = false;
             sentence_gadget.is_visible = false;
-            sentence_gadget.text = "";
+            sentence_gadget.text = " ";
         }
     }
 
@@ -292,12 +328,12 @@ Page test_page
 
         // Response data.
         int rt;             // response times [ms]
-        ButtonOption choice;
+        bool choice;
 
         void clear()
         {
             rt = -9999;
-            choice = ERROR_CHOICE;
+            choice = false;
         }
 
         void process_hit(int button_choice, time t)
@@ -324,10 +360,9 @@ Page test_page
             //item.correct_choice == button_choice
             rt = int(reaction_time(0));
             if( button_choice==LEFT_BUTTON )
-                choice = LEFT_BUTTON;
-            else
-                choice = RIGHT_BUTTON;
-
+                choice = experiment.LEFT_BUTTON_VALUE;
+            if ( button_choice==RIGHT_BUTTON )
+                choice = experiment.RIGHT_BUTTON_VALUE;
             ignore_remaining_hits();
             stop(t + DURATION_FEEDBACK_BUTTON);
         }
@@ -380,6 +415,10 @@ Page test_page
         control.target = this;
         control.button_box.disable_buttons();
         control.button_box.enable_all_buttons(CONTINUE);
+
+        //  set the button labels
+        layout.button_press_feedback.left_button_feedback.setup();
+        layout.button_press_feedback.right_button_feedback.setup();
     }
 
     // Performs cleaning up if necessary.

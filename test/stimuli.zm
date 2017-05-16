@@ -7,15 +7,12 @@ record TestItem
     string      sentence;
     string      figure_file_name;
 
-
-    int         digit_in_sentence;
     string      type;
-    string      quantifier;
+    string      condition;
+    string      structure;
     string      subject;
 
-    string      condition;
-
-    ButtonOption expected_answer;
+    bool        expected_answer;
 }
 
 
