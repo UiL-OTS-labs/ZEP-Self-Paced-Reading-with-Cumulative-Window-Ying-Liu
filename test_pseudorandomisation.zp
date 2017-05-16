@@ -41,10 +41,10 @@ void dump_test_items()
 	    "n" + "\t" +
 	    "id" + "\t" +
 	    "sentence" + "\t" +
-	    "figure" + "\t\t" +
-	    "quant" + "\t" +
+	    "figure" + "\t" +
+	    "structure" + "\t" +
+        "condition" + "\t" +
 	    "subject" + "\t" +
-	    "digit" +"\t"
 	    "type"
 	    );
 
@@ -55,9 +55,9 @@ void dump_test_items()
 		string(reference_test_items[n].identification) + "\t" +
 		substring(reference_test_items[n].sentence, 0, 8) + "..." + "\t" +
 		string(reference_test_items[n].figure_file_name) + "\t" +
-		substring(string(reference_test_items[n].quantifier), 0, 5) + "..\t" +
+		substring(string(reference_test_items[n].structure), 0, 5) + "..\t\t" +
+        substring(string(reference_test_items[n].condition), 0, 5) + "..\t\t" +
         substring(string(reference_test_items[n].subject), 0, 5) + "..\t" +
-		string(reference_test_items[n].digit_in_sentence) + "\t" +
 		string(reference_test_items[n].type) + "\t"
 		);
 		n++;
