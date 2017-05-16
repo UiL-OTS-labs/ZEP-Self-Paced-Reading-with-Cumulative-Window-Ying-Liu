@@ -77,6 +77,8 @@ Experiment experiment
 
             exit_page.set_text(THANK_YOU_TEXT);
             exit_page.action(this, 10s);
+
+            control.button_box.close();
         }
     }
 }
