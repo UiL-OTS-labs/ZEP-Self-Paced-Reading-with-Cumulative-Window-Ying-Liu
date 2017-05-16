@@ -12,7 +12,7 @@ record TestItem
     string      structure;
     string      subject;
 
-    ButtonOption expected_answer;
+    bool        expected_answer;
 }
 
 

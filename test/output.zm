@@ -12,11 +12,10 @@ record TestOutput
     string      structure;
     string      subject;
 
-    ButtonOption expected_answer;
+    bool        expected_answer;
     int         observation_time;
     int         reaction_time;
-    ButtonOption answer;
-
+    bool        answer;
 }
 
 

@@ -23,6 +23,9 @@ enum ButtonOption {
 
 Experiment experiment
 {
+    bool LEFT_BUTTON_VALUE = true;
+    bool RIGHT_BUTTON_VALUE = false;
+
     on_event:entry()
     {
         control.button_box.open();
